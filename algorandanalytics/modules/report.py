@@ -8,8 +8,8 @@ def generateFigures(readPath: str, writePath: str):
 
     #Get the block interval, tps, and convert epoch to real time data
     tpsData = blocks.groupby(["block","timestamp"]).size().reset_index(name="counts")
-    tpsData["blockInterval"] = tpsData["timestamp"] - tpsData["timestamp"].shift(1)
-    tpsData.drop(index=tpsData.index[0], axis=0, inplace=True)
+    tpsData["blockInterval"] = tpsData["timestamp"].shift(-1) - tpsData["timestamp"]
+    tpsData.drop(index=tpsData.index[-1], axis=0, inplace=True)
     tpsData["tps"] = tpsData["counts"]/tpsData["blockInterval"]
     tpsData["time"] = tpsData["timestamp"].transform(lambda x: datetime.datetime.fromtimestamp(x))
 
@@ -32,7 +32,7 @@ def generateFigures(readPath: str, writePath: str):
 
     #Generate Block Interval Time Plot and save to output directory
     blockFig, blockAx = plt.subplots(figsize=(10,6))
-    blockAx.plot(tpsData["time"],tpsData["blockInterval"])
+    blockAx.scatter(tpsData["time"],tpsData["blockInterval"], s=5)
     blockAx.set_xlabel('Time (DD HH:mm)')
     blockAx.set_ylabel('Block Interval (s)')
     blockAx.set_title('Block Interval Over Time')
@@ -42,7 +42,7 @@ def generateFigures(readPath: str, writePath: str):
     #Generate Zoomed Block Interval Time Plot and save to output directory
     lowerBound, upperBound = minTime,minTime + (maxTime-minTime)/20
     blockFig2, blockAx2 = plt.subplots(figsize=(10,6))
-    blockAx2.plot(tpsData["time"],tpsData["blockInterval"])
+    blockAx2.scatter(tpsData["time"],tpsData["blockInterval"], s=5)
     blockAx2.set_xlabel('Time (DD HH:mm)')
     blockAx2.set_ylabel('Block Interval (s)')
     blockAx2.set_ybound(1.0,7.5)
