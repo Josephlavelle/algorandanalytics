@@ -40,10 +40,6 @@ def getBlockData(block: int, typesOfInterest: list):
 
     blockData["transactions"] = filter(lambda d: isOfInterest(d = d, ofInterest= typesOfInterest), transactions)
     df = pd.DataFrame.from_dict(blockData["transactions"])
-
-    
-
-    
     df["block"] = block
     df["timestamp"] = blockData["timestamp"]
     df["genesis-hash"] = blockData["genesis-hash"]
@@ -73,5 +69,3 @@ def queryAlgorand(startBlock: int, endBlock: int, txnTypes: list):
         count += 1
         blocks.append(getBlockData(currentBlock, txnTypes))
     return pd.concat(blocks)
-
-
