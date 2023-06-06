@@ -1,5 +1,5 @@
 def help():
-    operations = {"Query Algorand ": "q","Generate Graphics ": "g","Generate Report ": "r","Exit App ": "exit"}
+    operations = {"Query Algorand ": "q","Generate Graphics ": "g","Exit App ": "exit"}
     print("This CLI can perform 2 functions.\n"+
           "1 - Query Algorand Network to acquire block and transaction data.\n" + 
           "2 - Generate graphics from stored block/transaction data.\n" + 

@@ -25,7 +25,7 @@ while command != "exit":
                 continue
 
         #Query Algorand
-        print("Please pick a starting and ending block. It is recommend to have atleast a sample of 500 blocks")
+        print("Please pick a starting and ending block. It is recommended to have atleast a sample of 100 blocks")
         startBlock = input("Starting Block: ")
         endBlock = input("Ending Block (inclusive): ")
         print("Starting Query")
