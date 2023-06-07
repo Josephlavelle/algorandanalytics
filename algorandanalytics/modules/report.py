@@ -3,6 +3,11 @@ import datetime
 import matplotlib
 import matplotlib.pyplot as plt
 def generateFigures(readPath: str, writePath: str):
+    '''
+    Reads query data from file. Transforms data frame to generate plots to
+    visualize key kpis such as transactions per second, block interval time and more. Writes out the
+    images to data/images
+    '''
     #Source data from written csv
     blocks = pd.read_csv(readPath)
 

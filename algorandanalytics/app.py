@@ -17,17 +17,16 @@ while command != "exit":
 
     #Query
     elif command == "q":
-
         #Confirm that user wants to overwrite data
         if exists("./data/blockTransactions.csv"):
-            command = input("You will overwrite the currently stored data. Enter 'ok' to confirm")
+            command = input("You will overwrite the currently stored data. Enter 'ok' to confirm\n")
             if command != "ok":
+                print("Returning to main menu")
                 continue
+        
+        #Get blocks from user
+        startBlock, endBlock = io.getBlockRange()
 
-        #Query Algorand
-        print("Please pick a starting and ending block. It is recommended to have atleast a sample of 100 blocks")
-        startBlock = input("Starting Block: ")
-        endBlock = input("Ending Block (inclusive): ")
         print("Starting Query")
         queryData = q.queryAlgorand(int(startBlock),int(endBlock),["payment-transaction","asset-transfer-transaction"])
         print("Writing Results")

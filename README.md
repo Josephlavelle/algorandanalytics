@@ -24,8 +24,10 @@ This will start the CLI. At any point while using the CLI, enter 'help' to be pr
 
 Once finished, the user can enter "exit" into the CLI to close the app.
 
+Tests for functions are included in the Tests folder and can be run by calling poetry run pyTest once the environment has been activated.
 ## Report
 A report on my own findings from using this tool can also be found in the report directory.
+
 ## Authors
 Joseph Lavelle
 Joseph.Lavelle@queensu.ca
