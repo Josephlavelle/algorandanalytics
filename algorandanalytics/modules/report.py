@@ -1,6 +1,5 @@
 import pandas as pd
 import datetime
-import matplotlib
 import matplotlib.pyplot as plt
 def generateFigures(readPath: str, writePath: str):
     '''
@@ -23,7 +22,7 @@ def generateFigures(readPath: str, writePath: str):
     minTime = min(transactions["timestamp"])
     maxTime = max(transactions["timestamp"])
     transactionCount = len(transactions)
-    avgTPS = (maxTime- minTime)/transactionCount
+    avgTPS = transactionCount/(maxTime- minTime)
 
     #Generate Transactions per Second Plot and save to output directory
     tpsFig, tpsAx = plt.subplots(figsize=(10,6))

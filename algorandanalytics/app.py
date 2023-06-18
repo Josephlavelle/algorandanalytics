@@ -28,7 +28,7 @@ while command != "exit":
         startBlock, endBlock = io.getBlockRange()
 
         print("Starting Query")
-        queryData = q.queryAlgorand(int(startBlock),int(endBlock),["payment-transaction","asset-transfer-transaction"])
+        queryData = q.queryAlgorand(int(startBlock),int(endBlock),["payment-transaction","asset-transfer-transaction"], "apiKeys.txt")
         print("Writing Results")
         queryData.to_csv("data/blockTransactions.csv")
         print("Successfully wrote results\n")

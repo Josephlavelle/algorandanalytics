@@ -3,7 +3,7 @@
 This a basic CLI tool to query the Algorand network for block/transaction data and generate some choice visualizations to help understand some of Algorand's KPIs.
 
 ## Description
-This app interfaces with the Algorand V2 Indexer using the v2/blocks/{round-number} end point to query data.
+This app interfaces with the Algorand V2 Indexer using the v2/blocks/{round-number} end point to query data. The app requires that you have a file containing your API called "apiKeys.txt" formatted as 'algorand: [YOUR API KEY HERE]'
 
 When app.py is run, the user will be greeted with a CLI that will them through the 2 main functions of the app -
 1. To query block and transaction data from Algorand. 
